@@ -15,17 +15,17 @@
 </head>
 <body>
     <!-- デバッグ用の画面表示、VR用のボタンをそれぞれ非表示に -->
-    <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
+    <a-scene embedded arjs="pattern-Ratio:0.80" vr-mode-ui="enabled: false">
         <a-assets>
             <video id="zundaVideo" src="./assets/AR埋め込み用動画_test_main.mp4"></video>
             <img id="zundaImg" src="./assets/ずんだもん立ち絵素材2_0001.png" alt="">
         </a-assets>
         <a-marker type="pattern" url="./assets/pattern-zunda.patt">
-            <a-video id="zundaV" src=".zundaVideo" width="3.84" height="2.16" posiition="0 0 0" rotation="-90 0 0" style="display: none;"></a-video>
-            <a-image id="zundaThum" src=".zundaImg" width="3.84" height="2.16" position="0 0 0" rotation="-90 0 0" style="display: block;"></a-image>
+            <a-video id="zundaV" src="#zundaVideo" width="3.84" height="2.16" posiition="0 0 0" rotation="-90 0 0" style="display: none;"></a-video>
+            <a-image id="zundaThum" src="#zundaImg" width="3.84" height="2.16" position="0 0 0" rotation="-90 0 0" style="display: block;"></a-image>
         </a-marker>
 
-        <a-entity camera></a-entity>
+        <a-entity camera cursor="fuse:false; rayOrigin:mouse;"></a-entity>
     </a-scene>
 
     <script>
