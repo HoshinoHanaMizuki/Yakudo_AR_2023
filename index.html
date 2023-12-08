@@ -7,7 +7,7 @@
   </head>
   <body>
       <!--　embedded　を追記してA-frameと統合 AR.jsの公式で作ったマーカーの黒枠の割合値をpatternRatioで合わせる -->
-    <a-scene embedded arjs="patternRatio:0.90" vr-mode-ui="enabled:false">
+    <a-scene embedded arjs="patternRatio:0.90" vr-mode-ui="enabled: false">
         <!-- a-assetsの中に表示させたい動画や画像の情報を入れる idで分類もしておく -->
       <a-assets>
         <video id="zundaVideo" src="./assets/AR埋め込み用動画_test_main.mp4"></video>
@@ -21,7 +21,7 @@
           width="1.9"
           height="1"
           position="0 0 0"
-          rotation="0 0 0"
+          rotation="-90 0 0"
           visible="false"
         ></a-video>
         <a-image
@@ -30,7 +30,7 @@
           width="1.9"
           height="1"
           position="0 0 0"
-          rotation="0 0 0"
+          rotation="-90 0 0"
         ></a-image>
       </a-marker>
       <a-entity camera cursor="fuse:false; rayOrigin:mouse;"></a-entity>
