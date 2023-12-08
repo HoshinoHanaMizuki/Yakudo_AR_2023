@@ -1,42 +1,49 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- A-Frame を読み込む -->
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <!-- AR.js を読み込む -->
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-
-    <title>ちびっこ相撲大会AR</title>
-
-</head>
-<body>
-    <!-- デバッグ用の画面表示、VR用のボタンをそれぞれ非表示に -->
-    <a-scene embedded arjs="pattern-Ratio:0.90" vr-mode-ui="enabled: false">
-        <a-assets>
-            <video id="zundaVideo" src="./assets/AR埋め込み用動画_test_main.mp4"></video>
-            <img id="zundaImg" src="./assets/ずんだもん立ち絵素材2_0001.png" alt="">
-        </a-assets>
-        <a-marker type="pattern" url="./assets/pattern-newestQR.patt">
-            <a-video id="zundaV" src="#zundaVideo" width="19" height="10" position="0 0 0" rotation="-90 0 0" style="display: none;"></a-video>
-            <a-image id="zundaThum" src="#zundaImg" width="19" height="10" position="0 0 0" rotation="0 0 0" style="display: block;"></a-image>
-        </a-marker>
-
-        <a-entity camera cursor="fuse:false; rayOrigin:mouse;"></a-entity>
+  </head>
+  <body>
+    <a-scene embedded arjs="patternRatio:0.90" vr-mode-ui="enabled: false">
+      <a-assets>
+        <video id="zundaVideo" src="./assets/AR埋め込み用動画_test_main.mp4"></video>
+        <img id="zundaImg" src="./assets/ずんだもん立ち絵素材2_0001.png" alt="">
+      </a-assets>
+      <a-marker
+        type="pattern"
+        url="https://cdn.glitch.global/acfb4156-866e-4cad-8f10-8087dd3573b0/pattern-QR_041369.patt?v=1702042867707"
+      >
+        <a-video
+          id="zundaV"
+          src="#zundaVideo"
+          width="1.9"
+          height="1"
+          position="0 0 0"
+          rotation="-90 0 0"
+          visible="false"
+        ></a-video>
+        <a-image
+          id="zundaThum"
+          src="#zundaImg"
+          width="1.9"
+          height="1"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-image>
+      </a-marker>
+      <a-entity camera></a-entity>
     </a-scene>
 
     <script>
-        window.addEventListener("click",()=>{
-            const zundaVideo=document.querySelector('#zundaVideo');
-            const zundaV=document.querySelector('#zundaV');
-            const zundaThum=document.querySelector('#zundaThum');
-            zundaThum.setAttribute("display","none");
-            zundaV.setAttribute("display","block");
-            zundaVideo.play();
-        }); 
+      window.addEventListener("click", () => {
+        const zundaVideo = document.querySelector("#zundaVideo");
+        const zundaV = document.querySelector("#zundaV");
+        const zundaThum = document.querySelector("#zundaThum");
+        zundaThum.setAttribute("visible", false);
+        zundaV.setAttribute("visible", true);
+        zundaVideo.play();
+      });
     </script>
-    </body>
+  </body>
 </html>
