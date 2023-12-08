@@ -17,12 +17,12 @@
     <!-- デバッグ用の画面表示、VR用のボタンをそれぞれ非表示に -->
     <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
         <a-assets>
-            <video class="zundaVideo" src="./assets/AR埋め込み用動画_test_main.mp4"></video>
-            <img class="zundaImg" src="./assets/ずんだもん立ち絵素材2_0001.png" alt="">
+            <video id="zundaVideo" src="./assets/AR埋め込み用動画_test_main.mp4"></video>
+            <img id="zundaImg" src="./assets/ずんだもん立ち絵素材2_0001.png" alt="">
         </a-assets>
         <a-marker type="pattern" url="./assets/pattern-zunda.patt">
-            <a-video class="zundaV" src=".zundaVideo" width="3.84" height="2.16" posiition="0 0 0" rotation="-90 0 0" style="display: none;"></a-video>
-            <a-image class="zundaThum" src=".zundaImg" width="3.84" height="2.16" position="0 0 0" rotation="0 0 0" style="display: block;"></a-image>
+            <a-video id="zundaV" src=".zundaVideo" width="3.84" height="2.16" posiition="0 0 0" rotation="-90 0 0" style="display: none;"></a-video>
+            <a-image id="zundaThum" src=".zundaImg" width="3.84" height="2.16" position="0 0 0" rotation="-90 0 0" style="display: block;"></a-image>
         </a-marker>
 
         <a-entity camera></a-entity>
@@ -30,10 +30,10 @@
 
     <script>
         window.addEventListener('click',()=>{
-            const zundaVideo=document.querySelector('.zundaVideo');
-            const zundaV=document.querySelector('.zundaV');
-            const zundaImg=document.querySelector('.zundaImg');
-            const zundaThum=document.querySelector('.zundaThum');
+            const zundaVideo=document.querySelector('#zundaVideo');
+            const zundaV=document.querySelector('#zundaV');
+            const zundaImg=document.querySelector('#zundaImg');
+            const zundaThum=document.querySelector('#zundaThum');
             zundaV.setAttribute("display","block");
             zundaThum.setAttribute("display","none");
             zundaVideo.play();
